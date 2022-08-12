@@ -81,5 +81,4 @@ class MassaViewController: UIViewController {
     @IBAction func backButtonP(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: K.Segue.MassatoBrain, sender: self)
     }
-  
 }

@@ -13,7 +13,7 @@ class SBrainViewController: UIViewController {
     @IBOutlet weak var novaTarefaTF: UITextField!
     @IBOutlet weak var tarefasTableView: UITableView!
     @IBOutlet weak var backUpButton: UIBarButtonItem!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +87,7 @@ extension SBrainViewController: UITableViewDataSource{
     @objc func tarefaConcluida(sender: UIButton) {
         let indexPathRow = sender.tag
         sender.setImage((UIImage(systemName: "circle")), for: .normal)
-        Tarefa.tarefasC.append(Tarefa.tarefas[indexPathRow])
+        Tarefa.tarefasC.insert(Tarefa.tarefas[indexPathRow], at: 0)
         Tarefa.tarefas.remove(at: indexPathRow)
         tarefasTableView.reloadData()
     }
@@ -160,18 +160,12 @@ extension SBrainViewController: UITextFieldDelegate{
         novaTarefaTF.endEditing(true)
         return true
     }
-    
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+   
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if novaTarefaTF.text == ""{
             novaTarefaTF.placeholder = "Qual é a nova tarefa?"
-            return false
-        }else{
-            return true
-        }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if let novaTarefa = novaTarefaTF.text{
+            
+        }else if let novaTarefa = novaTarefaTF.text{
             Tarefa.tarefas.append(Tarefa(descricao: novaTarefa, importancia: "Normal", dataCriacao: NSTimeIntervalSince1970))
         }
         novaTarefaTF.text = ""

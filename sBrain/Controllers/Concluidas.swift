@@ -73,8 +73,6 @@ extension Concluidas: UITableViewDataSource{
     // funcao chamada quando o botao de tarefa concluida e precionado usando o tag
     @objc func tarefaConcluida(sender: UIButton) {
         let indexPathRow = sender.tag
-        sender.isSelected = true
-        sender.setImage((UIImage(systemName: "circle")), for: .normal)
         Tarefa.tarefas.append(Tarefa.tarefasC[indexPathRow])
         Tarefa.tarefasC.remove(at: indexPathRow)
         tarefasTableView.reloadData()
