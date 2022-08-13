@@ -14,26 +14,35 @@ class SBrainViewController: UIViewController {
     @IBOutlet weak var tarefasTableView: UITableView!
     @IBOutlet weak var backUpButton: UIBarButtonItem!
     
+    let saveAndLoad = SaveAndLoad()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        saveAndLoad.loadTarefas()
+        saveAndLoad.loadTarefasC()
+        
         tarefasTableView.dataSource = self
         tarefasTableView.delegate = self
         tarefasTableView.dragDelegate = self
+        tarefasTableView.dragInteractionEnabled = true
         novaTarefaTF.delegate = self
         
         // registar a custom table view
         tarefasTableView.register(UINib(nibName: K.cellNib, bundle: nil), forCellReuseIdentifier: K.nomeCelula)
         //beta
         backUpButton.isEnabled = false
-        tarefasTableView.dragInteractionEnabled = true
+        
     }
     
     @IBAction func adicionarP(_ sender: UIButton) {
         // Quando o butao e precionado dicionar nova tarefa ao array se nao tiver vazio, colocar o campo vazio e atualizar a tabela
+        if novaTarefaTF.text == ""{
+            novaTarefaTF.placeholder = "Qual é a nova tarefa?"
+        }
         novaTarefaTF.endEditing(true)
     }
-    
     
 }
 
@@ -89,6 +98,8 @@ extension SBrainViewController: UITableViewDataSource{
         sender.setImage((UIImage(systemName: "circle")), for: .normal)
         Tarefa.tarefasC.insert(Tarefa.tarefas[indexPathRow], at: 0)
         Tarefa.tarefas.remove(at: indexPathRow)
+        saveAndLoad.saveItems()
+        saveAndLoad.saveItemsC()
         tarefasTableView.reloadData()
     }
 }
@@ -106,11 +117,10 @@ extension SBrainViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             Tarefa.tarefas.remove(at: indexPath.row)
+            saveAndLoad.saveItems()
             tarefasTableView.reloadData()
         }
     }
-    
-    
     
     // Quando a celulla e selecionada efectuar o segueway para a edicao dos dados
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -148,11 +158,12 @@ extension SBrainViewController: UITableViewDragDelegate{
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let dragItem = UIDragItem(itemProvider: NSItemProvider())
         dragItem.localObject = Tarefa.tarefas[indexPath.row]
+        saveAndLoad.saveItems()
         return [ dragItem ]
     }
 }
 
-//MARK: - UITableViewDragDelegate
+//MARK: - UITextFieldDelegate
 
 extension SBrainViewController: UITextFieldDelegate{
     
@@ -160,7 +171,7 @@ extension SBrainViewController: UITextFieldDelegate{
         novaTarefaTF.endEditing(true)
         return true
     }
-   
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         if novaTarefaTF.text == ""{
             novaTarefaTF.placeholder = "Qual é a nova tarefa?"
@@ -169,6 +180,7 @@ extension SBrainViewController: UITextFieldDelegate{
             Tarefa.tarefas.append(Tarefa(descricao: novaTarefa, importancia: "Normal", dataCriacao: NSTimeIntervalSince1970))
         }
         novaTarefaTF.text = ""
+        saveAndLoad.saveItems()
         tarefasTableView.reloadData()
     }
 }

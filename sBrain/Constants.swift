@@ -11,6 +11,8 @@ struct K {
     static let appName = "🧠 sBrain"
     static let nomeCelula = "celulaTarefa"
     static let cellNib = "TarefaTableViewCell"
+    static let ficheiroGuardado = "tarefas.plist"
+    static let ficheiroGuardadoC = "tarefasC.plist"
 
     
     struct Segue {

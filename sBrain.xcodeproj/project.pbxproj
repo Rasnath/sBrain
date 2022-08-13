@@ -21,6 +21,7 @@
 		8E6364FE28A037F100CF826C /* SBrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6364FD28A037F100CF826C /* SBrainViewController.swift */; };
 		8E63650028A0391700CF826C /* BackUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6364FF28A0391700CF826C /* BackUpViewController.swift */; };
 		8E63650228A03B7800CF826C /* MassaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E63650128A03B7800CF826C /* MassaViewController.swift */; };
+		8EB296FA28A7D13700C925D9 /* SaveAndLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB296F928A7D13700C925D9 /* SaveAndLoad.swift */; };
 		8EF5558128A3B2670056B387 /* Concluidas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF5558028A3B2670056B387 /* Concluidas.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		8E6364FD28A037F100CF826C /* SBrainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBrainViewController.swift; sourceTree = "<group>"; };
 		8E6364FF28A0391700CF826C /* BackUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpViewController.swift; sourceTree = "<group>"; };
 		8E63650128A03B7800CF826C /* MassaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassaViewController.swift; sourceTree = "<group>"; };
+		8EB296F928A7D13700C925D9 /* SaveAndLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAndLoad.swift; sourceTree = "<group>"; };
 		8EF5558028A3B2670056B387 /* Concluidas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concluidas.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				8E41254628A0DFC40040D7E3 /* Tarefa.swift */,
+				8EB296F928A7D13700C925D9 /* SaveAndLoad.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,8 +112,8 @@
 			children = (
 				8E6364DD28A02B6300CF826C /* WelcomeViewController.swift */,
 				8E6364FD28A037F100CF826C /* SBrainViewController.swift */,
-				8E6364FF28A0391700CF826C /* BackUpViewController.swift */,
 				8EF5558028A3B2670056B387 /* Concluidas.swift */,
+				8E6364FF28A0391700CF826C /* BackUpViewController.swift */,
 				8E63650128A03B7800CF826C /* MassaViewController.swift */,
 				8E07034528A0E9CA00E91061 /* TarefaTableViewCell.swift */,
 			);
@@ -198,6 +201,7 @@
 				8E6364DE28A02B6300CF826C /* WelcomeViewController.swift in Sources */,
 				8E63650028A0391700CF826C /* BackUpViewController.swift in Sources */,
 				8E41254728A0DFC50040D7E3 /* Tarefa.swift in Sources */,
+				8EB296FA28A7D13700C925D9 /* SaveAndLoad.swift in Sources */,
 				8E6364DA28A02B6300CF826C /* AppDelegate.swift in Sources */,
 				8E6364DC28A02B6300CF826C /* SceneDelegate.swift in Sources */,
 				8EF5558128A3B2670056B387 /* Concluidas.swift in Sources */,

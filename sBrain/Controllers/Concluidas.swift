@@ -9,7 +9,8 @@ import UIKit
 
 class Concluidas: UIViewController {
 
-  
+  let saveAndLoad = SaveAndLoad()
+    
     @IBOutlet weak var tarefasTableView: UITableView!
     
     override func viewDidLoad() {
@@ -75,7 +76,10 @@ extension Concluidas: UITableViewDataSource{
         let indexPathRow = sender.tag
         Tarefa.tarefas.append(Tarefa.tarefasC[indexPathRow])
         Tarefa.tarefasC.remove(at: indexPathRow)
+        saveAndLoad.saveItems()
+        saveAndLoad.saveItemsC()
         tarefasTableView.reloadData()
+        
     }
 }
 
@@ -92,6 +96,7 @@ extension Concluidas: UITableViewDelegate{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
           Tarefa.tarefasC.remove(at: indexPath.row)
+          saveAndLoad.saveItemsC()
           tarefasTableView.reloadData()
       }
     }

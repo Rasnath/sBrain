@@ -9,6 +9,8 @@ import UIKit
 
 class MassaViewController: UIViewController {
     
+    let saveAndLoad = SaveAndLoad()
+    
     @IBOutlet weak var tarefaLabel: UITextField!
     @IBOutlet weak var dataLabel: UITextField!
     @IBOutlet weak var horaLabel: UITextField!
@@ -69,9 +71,11 @@ class MassaViewController: UIViewController {
                 Tarefa.tarefas[row].descricao = tarefaLabel.text!
                 Tarefa.tarefas[row].dataEvento = dataM
                 Tarefa.tarefas[row].horaEvento = horaM
+                saveAndLoad.saveItems()
                 performSegue(withIdentifier: K.Segue.MassatoBrain, sender: self)
             }else{
                 Tarefa.tarefas.remove(at: row)
+                saveAndLoad.saveItems()
                 performSegue(withIdentifier: K.Segue.MassatoBrain, sender: self)
             }
         }
