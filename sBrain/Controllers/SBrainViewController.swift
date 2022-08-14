@@ -12,28 +12,28 @@ class SBrainViewController: UIViewController {
     
     @IBOutlet weak var novaTarefaTF: UITextField!
     @IBOutlet weak var tarefasTableView: UITableView!
-    @IBOutlet weak var backUpButton: UIBarButtonItem!
     
     let saveAndLoad = SaveAndLoad()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         saveAndLoad.loadTarefas()
         saveAndLoad.loadTarefasC()
-        
         tarefasTableView.dataSource = self
         tarefasTableView.delegate = self
         tarefasTableView.dragDelegate = self
         tarefasTableView.dragInteractionEnabled = true
         novaTarefaTF.delegate = self
-        
         // registar a custom table view
         tarefasTableView.register(UINib(nibName: K.cellNib, bundle: nil), forCellReuseIdentifier: K.nomeCelula)
-        //beta
-        backUpButton.isEnabled = false
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        saveAndLoad.loadTarefas()
+        saveAndLoad.loadTarefasC()
+        tarefasTableView.reloadData()
     }
     
     @IBAction func adicionarP(_ sender: UIButton) {
@@ -142,7 +142,6 @@ extension SBrainViewController: UITableViewDelegate{
             }
         }
     }
-    
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let movido = Tarefa.tarefas[sourceIndexPath.row]

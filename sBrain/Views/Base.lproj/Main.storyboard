@@ -34,7 +34,7 @@
                     <navigationItem key="navigationItem" id="NMz-Ck-p66"/>
                     <connections>
                         <outlet property="nomeApp" destination="rK7-XJ-zcA" id="0lN-uo-FPS"/>
-                        <segue destination="5Dd-WE-IDF" kind="presentation" identifier="welcomeToBrain" modalPresentationStyle="fullScreen" id="uXo-pQ-RGf"/>
+                        <segue destination="PkA-aL-CLp" kind="presentation" identifier="welcomeToBrain" modalPresentationStyle="fullScreen" id="uXo-pQ-RGf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -46,7 +46,7 @@
             <objects>
                 <viewController id="XEr-0I-zHH" customClass="BackUpViewController" customModule="sBrain" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qAh-GI-Fc0">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Registar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0X-0v-aoG">
@@ -95,7 +95,7 @@
                         <viewLayoutGuide key="safeArea" id="5mp-us-C3d"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="HSy-vn-K6o"/>
+                    <navigationItem key="navigationItem" id="4u7-6S-HTI"/>
                     <connections>
                         <outlet property="email" destination="mPi-8w-bCi" id="QZ6-Iz-yZ9"/>
                         <outlet property="password" destination="93X-dN-Ey1" id="VEp-YQ-7D2"/>
@@ -103,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XXn-3c-BUI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4876.9230769230771" y="-585.07109004739334"/>
+            <point key="canvasLocation" x="5857" y="-600"/>
         </scene>
         <!--Brain View Controller-->
         <scene sceneID="qah-Yr-9tT">
@@ -139,52 +139,52 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cuc-53-amT">
-                                <rect key="frame" x="0.0" y="44" width="390" height="44"/>
-                                <items>
-                                    <navigationItem title="Tarefas" id="DJK-Q9-Kpa">
-                                        <barButtonItem key="leftBarButtonItem" title="Concluidas" id="Owc-Aa-vTK">
-                                            <connections>
-                                                <segue destination="seL-Ju-qm8" kind="presentation" identifier="BrainToConcluidas" modalPresentationStyle="fullScreen" id="qP7-5O-3qN"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Backup" id="ifZ-Oq-J5I">
-                                            <connections>
-                                                <segue destination="XEr-0I-zHH" kind="show" id="8dY-mV-YQz"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uu8-AL-w2o"/>
                         <color key="backgroundColor" name="BackGround"/>
                         <constraints>
-                            <constraint firstItem="Cuc-53-amT" firstAttribute="trailing" secondItem="uu8-AL-w2o" secondAttribute="trailing" id="1lN-2r-off"/>
                             <constraint firstItem="7AX-Hh-KeU" firstAttribute="leading" secondItem="Cho-YB-8lc" secondAttribute="leadingMargin" id="Cdt-z5-rnR"/>
                             <constraint firstItem="KZ1-Oa-QeN" firstAttribute="leading" secondItem="Cho-YB-8lc" secondAttribute="leadingMargin" id="Ohh-Yn-wNF"/>
+                            <constraint firstItem="KZ1-Oa-QeN" firstAttribute="top" secondItem="uu8-AL-w2o" secondAttribute="top" constant="20" id="aC4-TH-9Lq"/>
                             <constraint firstItem="7AX-Hh-KeU" firstAttribute="top" secondItem="KZ1-Oa-QeN" secondAttribute="bottom" constant="20" id="ers-2C-cf5"/>
-                            <constraint firstItem="Cuc-53-amT" firstAttribute="top" secondItem="uu8-AL-w2o" secondAttribute="top" id="ezf-af-9dp"/>
                             <constraint firstItem="7AX-Hh-KeU" firstAttribute="bottom" secondItem="Cho-YB-8lc" secondAttribute="bottomMargin" id="n5c-rX-KYn"/>
-                            <constraint firstItem="KZ1-Oa-QeN" firstAttribute="top" secondItem="Cuc-53-amT" secondAttribute="bottom" constant="20" id="pZ0-dv-Y0Z"/>
                             <constraint firstItem="KZ1-Oa-QeN" firstAttribute="trailing" secondItem="Cho-YB-8lc" secondAttribute="trailingMargin" id="vt8-ek-k7L"/>
-                            <constraint firstItem="Cuc-53-amT" firstAttribute="leading" secondItem="uu8-AL-w2o" secondAttribute="leading" id="yex-cO-hNc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7AX-Hh-KeU" secondAttribute="trailing" id="zOe-HO-Nja"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="TTt-Yp-zVG">
-                        <barButtonItem key="rightBarButtonItem" title="Backup" id="1Y9-MA-X48"/>
+                    <navigationItem key="navigationItem" id="TDd-T2-ggX">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="uGO-D9-kVv">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="OPi-zx-Xtk">
+                                <rect key="frame" x="16.000000000000007" y="5" width="108.66666666666669" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Concluidas"/>
+                                <connections>
+                                    <segue destination="seL-Ju-qm8" kind="show" id="EWe-Aa-IMt"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="plain" id="HZl-an-CyA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="yBE-9Z-e4x">
+                                <rect key="frame" x="288" y="5" width="86" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Backup"/>
+                                <connections>
+                                    <segue destination="XEr-0I-zHH" kind="show" id="qXb-uA-9Bv"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="backUpButton" destination="ifZ-Oq-J5I" id="Ggk-yQ-ucv"/>
                         <outlet property="novaTarefaTF" destination="Fya-JE-uHE" id="Hf2-1y-8dJ"/>
                         <outlet property="tarefasTableView" destination="KZ1-Oa-QeN" id="35V-0W-qWA"/>
-                        <segue destination="25u-dE-orX" kind="presentation" identifier="brainToMassa" modalPresentationStyle="fullScreen" id="pd4-Ce-cys"/>
+                        <segue destination="25u-dE-orX" kind="show" identifier="brainToMassa" id="pd4-Ce-cys"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ff5-xj-vvq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3896.9230769230767" y="110.90047393364928"/>
+            <point key="canvasLocation" x="4826.1538461538457" y="110.90047393364928"/>
         </scene>
         <!--Concluidas-->
         <scene sceneID="C3L-VV-d7l">
@@ -198,41 +198,24 @@
                                 <rect key="frame" x="16" y="108" width="358" height="702"/>
                                 <color key="backgroundColor" name="Tabela"/>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OcP-qM-KGJ">
-                                <rect key="frame" x="0.0" y="44" width="390" height="44"/>
-                                <items>
-                                    <navigationItem title="Concluidas" id="s0x-22-0hF">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="eWN-Dx-HwI">
-                                            <connections>
-                                                <segue destination="5Dd-WE-IDF" kind="presentation" identifier="concluidasToBrain" modalPresentationStyle="fullScreen" id="UOZ-ae-tNS"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QXs-G5-zJQ"/>
                         <color key="backgroundColor" name="BackGround"/>
                         <constraints>
-                            <constraint firstItem="OcP-qM-KGJ" firstAttribute="top" secondItem="QXs-G5-zJQ" secondAttribute="top" id="09a-JU-KpW"/>
-                            <constraint firstItem="OcP-qM-KGJ" firstAttribute="leading" secondItem="QXs-G5-zJQ" secondAttribute="leading" id="GQp-I0-Na0"/>
-                            <constraint firstItem="FUy-4K-DOj" firstAttribute="top" secondItem="OcP-qM-KGJ" secondAttribute="bottom" constant="20" id="GX3-Uc-aj8"/>
                             <constraint firstItem="FUy-4K-DOj" firstAttribute="leading" secondItem="35J-Hz-mth" secondAttribute="leadingMargin" id="dgg-4v-Xf9"/>
-                            <constraint firstItem="OcP-qM-KGJ" firstAttribute="trailing" secondItem="QXs-G5-zJQ" secondAttribute="trailing" id="nY9-mh-pKJ"/>
+                            <constraint firstItem="FUy-4K-DOj" firstAttribute="top" secondItem="QXs-G5-zJQ" secondAttribute="top" constant="20" id="rjj-Zg-t21"/>
                             <constraint firstItem="FUy-4K-DOj" firstAttribute="bottom" secondItem="QXs-G5-zJQ" secondAttribute="bottom" id="s6Q-R3-ORY"/>
                             <constraint firstItem="FUy-4K-DOj" firstAttribute="trailing" secondItem="35J-Hz-mth" secondAttribute="trailingMargin" id="vFH-fm-M8f"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="orQ-l4-Snp">
-                        <barButtonItem key="rightBarButtonItem" title="Backup" id="ajp-ke-Kqz"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="47P-V1-pt4"/>
                     <connections>
                         <outlet property="tarefasTableView" destination="FUy-4K-DOj" id="Q1R-IX-0GA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcL-pC-TFP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3896.9230769230767" y="838.86255924170609"/>
+            <point key="canvasLocation" x="5857" y="818"/>
         </scene>
         <!--Massa View Controller-->
         <scene sceneID="AUO-VU-gLP">
@@ -337,46 +320,45 @@
                                     <constraint firstAttribute="height" constant="233.66999999999999" id="kZi-KK-sNl"/>
                                 </constraints>
                             </stackView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zb9-vI-eyP">
-                                <rect key="frame" x="0.0" y="44" width="0.0" height="44"/>
-                                <items>
-                                    <navigationItem title="Update" id="LVz-JE-iq6">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="zQV-25-J0N">
-                                            <connections>
-                                                <action selector="backButtonP:" destination="25u-dE-orX" id="h7a-5Q-vcJ"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2T6-2y-QtC"/>
                         <color key="backgroundColor" name="BackGround"/>
                         <constraints>
-                            <constraint firstItem="kkj-7e-MeJ" firstAttribute="top" secondItem="zb9-vI-eyP" secondAttribute="bottom" constant="20" id="1lV-Mv-XzH"/>
-                            <constraint firstItem="zb9-vI-eyP" firstAttribute="leading" secondItem="2T6-2y-QtC" secondAttribute="leading" id="9UX-mZ-nV5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kkj-7e-MeJ" secondAttribute="trailing" id="BWQ-NQ-UMf"/>
-                            <constraint firstAttribute="trailing" secondItem="zb9-vI-eyP" secondAttribute="trailing" id="DdJ-3S-WBP"/>
                             <constraint firstItem="kkj-7e-MeJ" firstAttribute="leading" secondItem="QaV-TM-7AE" secondAttribute="leadingMargin" id="FnJ-Ew-2rL"/>
-                            <constraint firstItem="zb9-vI-eyP" firstAttribute="top" secondItem="2T6-2y-QtC" secondAttribute="top" id="FoS-He-nS0"/>
+                            <constraint firstItem="kkj-7e-MeJ" firstAttribute="top" secondItem="2T6-2y-QtC" secondAttribute="top" constant="20" id="fLU-6k-Mqf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="1Aq-6L-8kp"/>
+                    <navigationItem key="navigationItem" id="Vob-x0-gyc"/>
                     <connections>
                         <outlet property="dataLabel" destination="j9v-Xf-cyc" id="ukG-dy-cSl"/>
                         <outlet property="horaLabel" destination="UbF-0y-5LL" id="DBn-6Z-KoO"/>
                         <outlet property="tarefaLabel" destination="Sgn-v4-r0U" id="MoF-BY-lxE"/>
-                        <segue destination="5Dd-WE-IDF" kind="presentation" identifier="massaToBrain" modalPresentationStyle="fullScreen" id="jaf-5A-48h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWL-Fr-a1f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4927.6923076923076" y="116.58767772511848"/>
+            <point key="canvasLocation" x="5857" y="111"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zd8-oG-Wma">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PkA-aL-CLp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8fw-9y-AIh">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5Dd-WE-IDF" kind="relationship" relationship="rootViewController" id="ljN-Dw-mCn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="scW-Gz-70h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3896.9230769230767" y="110.90047393364928"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="jaf-5A-48h"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="BackGround">
             <color red="0.90399998426437378" green="0.94900000095367432" blue="0.98600000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

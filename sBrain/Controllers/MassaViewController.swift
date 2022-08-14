@@ -61,8 +61,8 @@ class MassaViewController: UIViewController {
     @IBAction func upDate(_ sender: UIButton) {
         // Carregar data e hora para o array
         if let data = dataLabel.text, let hora = horaLabel.text{
-                dataM = data
-                horaM = hora
+            dataM = data
+            horaM = hora
         }
         
         // carregar os dados alterados no array das tarefas
@@ -72,17 +72,14 @@ class MassaViewController: UIViewController {
                 Tarefa.tarefas[row].dataEvento = dataM
                 Tarefa.tarefas[row].horaEvento = horaM
                 saveAndLoad.saveItems()
-                performSegue(withIdentifier: K.Segue.MassatoBrain, sender: self)
+                navigationController?.popViewController(animated: true)
+                dismiss(animated: true, completion: nil)
             }else{
                 Tarefa.tarefas.remove(at: row)
                 saveAndLoad.saveItems()
-                performSegue(withIdentifier: K.Segue.MassatoBrain, sender: self)
+                navigationController?.popViewController(animated: true)
+                dismiss(animated: true, completion: nil)
             }
         }
-    }
-    
-    // ir para traz sem fazer alteracoes
-    @IBAction func backButtonP(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: K.Segue.MassatoBrain, sender: self)
     }
 }

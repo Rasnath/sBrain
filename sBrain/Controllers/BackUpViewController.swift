@@ -18,6 +18,6 @@ class BackUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func registrarP(_ sender: UIButton) {
+    @IBAction func registarP(_ sender: UIButton) {
     }
 }
