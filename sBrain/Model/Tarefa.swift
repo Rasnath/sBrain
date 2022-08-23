@@ -8,16 +8,9 @@
 import Foundation
 
 struct Tarefa: Codable {
-    
     var descricao: String
     var importancia: String
-    var dataCriacao: TimeInterval
+    var dataCriacao = Date()
     var dataEvento: String?
     var horaEvento: String?
-    
-    static var tarefas: [Tarefa] = []
-    static var tarefasC: [Tarefa] = []
 }
-
-
-

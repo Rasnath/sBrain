@@ -9,12 +9,13 @@ import UIKit
 
 class Concluidas: UIViewController {
 
-  let saveAndLoad = SaveAndLoad()
+  private var saveAndLoad = SaveAndLoad()
     
     @IBOutlet weak var tarefasTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        saveAndLoad.loadTarefas()
         tarefasTableView.dataSource = self
         tarefasTableView.delegate = self
         // registar a custom table view
@@ -27,14 +28,14 @@ class Concluidas: UIViewController {
 extension Concluidas: UITableViewDataSource{
     // numero de linhas, igual ao numero de elementos no array
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Tarefa.tarefasC.count
+        return saveAndLoad.tarefasC.count
     }
     
     // chamdo para cada linha da tabela para criar uma nova celula onde o indexPath e a celula a ser criada no momento
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // carregar a constante com a tarefa que é para utilizar naquela celula
-        let tarefa = Tarefa.tarefasC[indexPath.row]
+        let tarefa = saveAndLoad.tarefasC[indexPath.row]
         
         // carregar na constante cell a celula costumizada
         let cell = tarefasTableView.dequeueReusableCell(withIdentifier: K.nomeCelula, for: indexPath) as! TarefaTableViewCell
@@ -74,10 +75,9 @@ extension Concluidas: UITableViewDataSource{
     // funcao chamada quando o botao de tarefa concluida e precionado usando o tag
     @objc func tarefaConcluida(sender: UIButton) {
         let indexPathRow = sender.tag
-        Tarefa.tarefas.append(Tarefa.tarefasC[indexPathRow])
-        Tarefa.tarefasC.remove(at: indexPathRow)
+        saveAndLoad.tarefas.append(saveAndLoad.tarefasC[indexPathRow])
+        saveAndLoad.tarefasC.remove(at: indexPathRow)
         saveAndLoad.saveItems()
-        saveAndLoad.saveItemsC()
         tarefasTableView.reloadData()
         
     }
@@ -95,8 +95,8 @@ extension Concluidas: UITableViewDelegate{
     // Apagar a celula quando swipe left
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
-          Tarefa.tarefasC.remove(at: indexPath.row)
-          saveAndLoad.saveItemsC()
+          saveAndLoad.tarefasC.remove(at: indexPath.row)
+          saveAndLoad.saveItems()
           tarefasTableView.reloadData()
       }
     }

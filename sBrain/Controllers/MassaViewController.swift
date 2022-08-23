@@ -9,7 +9,7 @@ import UIKit
 
 class MassaViewController: UIViewController {
     
-    let saveAndLoad = SaveAndLoad()
+    private var saveAndLoad = SaveAndLoad()
     
     @IBOutlet weak var tarefaLabel: UITextField!
     @IBOutlet weak var dataLabel: UITextField!
@@ -22,6 +22,8 @@ class MassaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        saveAndLoad.loadTarefas()
         
         // Colocar os dados nos respetivos label
         tarefaLabel.text = tarefaM
@@ -64,18 +66,18 @@ class MassaViewController: UIViewController {
             dataM = data
             horaM = hora
         }
-        
-        // carregar os dados alterados no array das tarefas
-        if let row = Tarefa.tarefas.firstIndex(where: {$0.descricao == tarefaM}) {
+         // carregar os dados alterados no array das tarefas
+        if let row = saveAndLoad.tarefas.firstIndex(where: {$0.descricao == tarefaM}) {
+            
             if tarefaLabel.text != ""{
-                Tarefa.tarefas[row].descricao = tarefaLabel.text!
-                Tarefa.tarefas[row].dataEvento = dataM
-                Tarefa.tarefas[row].horaEvento = horaM
+                saveAndLoad.tarefas[row].descricao = tarefaLabel.text!
+                saveAndLoad.tarefas[row].dataEvento = dataM
+                saveAndLoad.tarefas[row].horaEvento = horaM
                 saveAndLoad.saveItems()
                 navigationController?.popViewController(animated: true)
                 dismiss(animated: true, completion: nil)
             }else{
-                Tarefa.tarefas.remove(at: row)
+                saveAndLoad.tarefas.remove(at: row)
                 saveAndLoad.saveItems()
                 navigationController?.popViewController(animated: true)
                 dismiss(animated: true, completion: nil)

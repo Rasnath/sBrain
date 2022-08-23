@@ -13,13 +13,12 @@ class SBrainViewController: UIViewController {
     @IBOutlet weak var novaTarefaTF: UITextField!
     @IBOutlet weak var tarefasTableView: UITableView!
     
-    let saveAndLoad = SaveAndLoad()
+    private var saveAndLoad = SaveAndLoad()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         saveAndLoad.loadTarefas()
-        saveAndLoad.loadTarefasC()
         tarefasTableView.dataSource = self
         tarefasTableView.delegate = self
         tarefasTableView.dragDelegate = self
@@ -32,7 +31,6 @@ class SBrainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         saveAndLoad.loadTarefas()
-        saveAndLoad.loadTarefasC()
         tarefasTableView.reloadData()
     }
     
@@ -51,14 +49,14 @@ class SBrainViewController: UIViewController {
 extension SBrainViewController: UITableViewDataSource{
     // numero de linhas, igual ao numero de elementos no array
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Tarefa.tarefas.count
+        return saveAndLoad.tarefas.count
     }
     
     // chamdo para cada linha da tabela para criar uma nova celula onde o indexPath e a celula a ser criada no momento
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // carregar a constante com a tarefa que é para utilizar naquela celula
-        let tarefa = Tarefa.tarefas[indexPath.row]
+        let tarefa = saveAndLoad.tarefas[indexPath.row]
         
         // carregar na constante cell a celula costumizada
         let cell = tarefasTableView.dequeueReusableCell(withIdentifier: K.nomeCelula, for: indexPath) as! TarefaTableViewCell
@@ -96,10 +94,9 @@ extension SBrainViewController: UITableViewDataSource{
     @objc func tarefaConcluida(sender: UIButton) {
         let indexPathRow = sender.tag
         sender.setImage((UIImage(systemName: "circle")), for: .normal)
-        Tarefa.tarefasC.insert(Tarefa.tarefas[indexPathRow], at: 0)
-        Tarefa.tarefas.remove(at: indexPathRow)
+        saveAndLoad.tarefasC.insert(saveAndLoad.tarefas[indexPathRow], at: 0)
+        saveAndLoad.tarefas.remove(at: indexPathRow)
         saveAndLoad.saveItems()
-        saveAndLoad.saveItemsC()
         tarefasTableView.reloadData()
     }
 }
@@ -116,7 +113,7 @@ extension SBrainViewController: UITableViewDelegate{
     // Apagar a celula quando swipe left
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            Tarefa.tarefas.remove(at: indexPath.row)
+            saveAndLoad.tarefas.remove(at: indexPath.row)
             saveAndLoad.saveItems()
             tarefasTableView.reloadData()
         }
@@ -144,9 +141,9 @@ extension SBrainViewController: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movido = Tarefa.tarefas[sourceIndexPath.row]
-        Tarefa.tarefas.remove(at: sourceIndexPath.row)
-        Tarefa.tarefas.insert(movido, at: destinationIndexPath.row)
+        let movido = saveAndLoad.tarefas[sourceIndexPath.row]
+        saveAndLoad.tarefas.remove(at: sourceIndexPath.row)
+        saveAndLoad.tarefas.insert(movido, at: destinationIndexPath.row)
         self.tarefasTableView.reloadData()
     }
 }
@@ -156,7 +153,7 @@ extension SBrainViewController: UITableViewDelegate{
 extension SBrainViewController: UITableViewDragDelegate{
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let dragItem = UIDragItem(itemProvider: NSItemProvider())
-        dragItem.localObject = Tarefa.tarefas[indexPath.row]
+        dragItem.localObject = saveAndLoad.tarefas[indexPath.row]
         saveAndLoad.saveItems()
         return [ dragItem ]
     }
@@ -176,7 +173,7 @@ extension SBrainViewController: UITextFieldDelegate{
             novaTarefaTF.placeholder = "Qual é a nova tarefa?"
             
         }else if let novaTarefa = novaTarefaTF.text{
-            Tarefa.tarefas.append(Tarefa(descricao: novaTarefa, importancia: "Normal", dataCriacao: NSTimeIntervalSince1970))
+            saveAndLoad.tarefas.append(Tarefa(descricao: novaTarefa, importancia: "Normal"))
         }
         novaTarefaTF.text = ""
         saveAndLoad.saveItems()
